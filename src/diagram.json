@@ -1,0 +1,55 @@
+{
+	"version": 1,
+	"author": "SolarSync IoT",
+	"editor": "wokwi",
+	"parts": [
+		{
+			"type": "board-esp32-devkit-c-v4",
+			"id": "esp",
+			"top": 0,
+			"left": 0,
+			"attrs": { "env": "esp32:esp32:esp32" }
+		},
+		{
+			"type": "wokwi-dht22",
+			"id": "dht1",
+			"top": 9.9,
+			"left": 177,
+			"attrs": { "temperature": "50.8", "humidity": "35.5" }
+		},
+		{
+			"type": "wokwi-photoresistor-sensor",
+			"id": "ldr1",
+			"top": 233.6,
+			"left": -8.8,
+			"attrs": {}
+		},
+		{
+			"type": "wokwi-resistor",
+			"id": "r1",
+			"top": 214.6,
+			"left": 171.95,
+			"rotate": 270,
+			"attrs": { "value": "10000" }
+		},
+		{ "type": "wokwi-analog-sensor", "id": "acs", "top": 250, "left": 180, "attrs": {} }
+	],
+	"connections": [
+		["esp:TX", "$serialMonitor:RX", "", []],
+		["esp:RX", "$serialMonitor:TX", "", []],
+		["esp:3V3", "dht1:VCC", "red", ["v-19.2", "h158.59", "v124.8", "h28.8"]],
+		["esp:D26", "dht1:DATA", "green", ["v0"]],
+		["esp:GND.1", "ldr1:GND", "black", ["v0"]],
+		["esp:3V3", "ldr1:VCC", "red", ["h-23.81", "v137.2"]],
+		["esp:D35", "ldr1:DO", "green", ["v0"]],
+		["esp:GND.1", "acs:GND", "black", ["v0"]],
+		["esp:3V3", "acs:VCC", "red", ["v0"]],
+		["esp:D34", "acs:OUT", "yellow", ["v0"]],
+		["r1:1", "ldr1:DO", "gold", ["v0"]],
+		["r1:2", "esp:GND.1", "black", ["v0.65", "h-332.24"]],
+		["dht1:GND", "esp:GND.2", "black", ["v28.8", "h-105.6", "v-124.8"]],
+		["dht1:SDA", "esp:26", "green", ["v19.2", "h0.1"]],
+		["ldr1:AO", "esp:35", "green", ["h-6.4", "v28.1", "h-195.2", "v-240"]]
+	],
+	"dependencies": {}
+}
