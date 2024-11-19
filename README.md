@@ -45,7 +45,7 @@ O fluxo do Node-RED está disponível no arquivo `dashboard-solar-sync.json`
 
 ## Demonstração 📺
 
-"link do video"
+link do video: https://youtu.be/fNW4cQmwKKI
 
 ## Instalação e Configuração ⚙️
 
